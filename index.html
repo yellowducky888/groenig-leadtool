@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tuinwaarde Check | Groenig</title>
+<meta name="description" content="Beantwoord 6 korte vragen en ontdek wat een doordacht tuinontwerp kan betekenen voor de waarde van je woning.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="tw">
+  <header class="tw-header">
+    <!-- TODO: vervang door het echte Groenig-logo (SVG uit de logopack) -->
+    <div class="tw-logo-placeholder">Logo Groenig</div>
+    <span class="tw-header-name" data-show-not="intro">Tuinwaarde Check</span>
+  </header>
+
+  <main id="tw-main" tabindex="-1">
+
+    <!-- INTRO -->
+    <section class="tw-screen" data-screen="intro">
+      <img class="tw-photo" src="tuin.jpg" alt="Tuin met betonnen terras, meerstammige boom en borders met paarse salie bij een witte woning">
+      <div class="tw-stack-16">
+        <span class="tw-tag">Tuinwaarde Check</span>
+        <h1 class="tw-h1">Hoeveel waarde voegt een nieuwe tuin toe aan je <em>woning</em>?</h1>
+        <p class="tw-body-lg">Beantwoord 6 korte vragen en ontdek wat een doordacht tuinontwerp kan betekenen voor de waarde en verkoopbaarheid van je woning. Duurt 1 minuut.</p>
+      </div>
+      <button type="button" class="tw-btn tw-btn-primary" data-action="start">Start de check <svg class="tw-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></button>
+    </section>
+
+    <!-- VRAGEN (gevuld door app.js) -->
+    <section class="tw-screen" data-screen="question">
+      <div class="tw-stack-10">
+        <div class="tw-row">
+          <button type="button" class="tw-back" data-action="back"><svg class="tw-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Terug</button>
+          <span class="tw-meta" id="tw-q-count"></span>
+        </div>
+        <div class="tw-progress" role="progressbar" aria-label="Voortgang" aria-valuemin="0" aria-valuemax="6" id="tw-progress">
+          <div class="tw-progress-fill" id="tw-progress-fill"></div>
+        </div>
+      </div>
+      <div class="tw-stack-8">
+        <h1 class="tw-h3" id="tw-q-title"></h1>
+        <p class="tw-help" id="tw-q-help"></p>
+      </div>
+      <div class="tw-options" role="group" id="tw-options"></div>
+      <button type="button" class="tw-btn tw-btn-primary" id="tw-next" data-action="next" hidden>Volgende <svg class="tw-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></button>
+    </section>
+
+    <!-- E-MAIL -->
+    <section class="tw-screen tw-screen-email" data-screen="email">
+      <div>
+        <button type="button" class="tw-back" data-action="back"><svg class="tw-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Terug</button>
+      </div>
+      <div class="tw-teaser-wrap">
+        <div class="tw-teaser" aria-hidden="true">
+          <div class="tw-result-card">
+            <span class="tw-result-label">Geschatte meerwaarde</span>
+            <span class="tw-teaser-num" data-bind="low"></span>
+            <span class="tw-teaser-num">tot <span data-bind="high"></span></span>
+          </div>
+          <div class="tw-teaser-bullets" data-bind="teaserBullets"></div>
+        </div>
+
+        <form class="tw-form-card" id="tw-form" novalidate>
+          <div class="tw-stack-8">
+            <h1 class="tw-h3">Je Tuinwaarde Check is <em>klaar</em></h1>
+            <p class="tw-body">Waar mogen we je resultaat naartoe sturen? Je ziet het meteen op het volgende scherm en krijgt een kopie per mail.</p>
+          </div>
+          <div class="tw-field">
+            <label for="tw-first" class="tw-label">Voornaam</label>
+            <input id="tw-first" name="first" type="text" class="tw-input" autocomplete="given-name" aria-describedby="tw-first-err">
+            <span class="tw-error" id="tw-first-err" hidden></span>
+          </div>
+          <div class="tw-field">
+            <label for="tw-email" class="tw-label">E-mail</label>
+            <input id="tw-email" name="email" type="email" class="tw-input" autocomplete="email" inputmode="email" aria-describedby="tw-email-err">
+            <span class="tw-error" id="tw-email-err" hidden></span>
+          </div>
+          <div class="tw-field">
+            <label for="tw-phone" class="tw-label">Telefoon <span class="tw-label-opt">(optioneel)</span></label>
+            <input id="tw-phone" name="phone" type="tel" class="tw-input" autocomplete="tel" inputmode="tel">
+          </div>
+          <div class="tw-field">
+            <label for="tw-postcode" class="tw-label">Postcode</label>
+            <input id="tw-postcode" name="postcode" type="text" class="tw-input" autocomplete="postal-code" inputmode="numeric" maxlength="4" aria-describedby="tw-postcode-err">
+            <span class="tw-error" id="tw-postcode-err" hidden></span>
+          </div>
+          <label for="tw-optin" class="tw-check">
+            <input id="tw-optin" name="optin" type="checkbox">
+            <span>Stuur me een paar keer per jaar tuininspiratie.</span>
+          </label>
+          <button type="submit" class="tw-btn tw-btn-primary">Toon mijn resultaat <svg class="tw-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></button>
+          <!-- TODO: link naar het echte privacybeleid -->
+          <p class="tw-small">We gebruiken je gegevens enkel om je resultaat te sturen en je tuinproject op te volgen. <a href="#privacybeleid">Privacybeleid</a></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- RESULTAAT + CTA -->
+    <section class="tw-screen" data-screen="result">
+      <div class="tw-stack-12">
+        <span class="tw-tag tw-tag-warning" id="tw-notice">Prototype: bedragen berekend met placeholderwaarden</span>
+        <h1 class="tw-h2"><span data-bind="firstName"></span>, dit kan je tuin <em>betekenen</em> voor je woning</h1>
+      </div>
+      <div class="tw-result-card">
+        <span class="tw-result-label">Geschatte meerwaarde</span>
+        <p class="tw-result-num" data-bind="low"></p>
+        <p class="tw-result-num"><span class="tw-result-tot">tot </span><span data-bind="high"></span></p>
+        <p class="tw-result-invest">Bij een investering van ongeveer <span data-bind="investLow"></span> tot <span data-bind="investHigh"></span> in je tuin.</p>
+      </div>
+      <div class="tw-stack-16">
+        <h2 class="tw-h4">Wat het meeste waarde toevoegt in jouw situatie</h2>
+        <ul class="tw-bullets" data-bind="bullets"></ul>
+      </div>
+      <div class="tw-panel">
+        <span class="tw-tag" data-bind="planLabel"></span>
+        <p class="tw-body" data-bind="planText"></p>
+      </div>
+      <p class="tw-disclaimer"><svg class="tw-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 8h.01"/></svg><span>Dit is een indicatieve schatting op basis van gemiddelden, geen officiële waardebepaling. De echte meerwaarde hangt af van je woning, ligging en de markt.</span></p>
+      <div class="tw-cta-card">
+        <img class="tw-photo tw-photo-sm" src="tuin.jpg" alt="Tuin met betonnen terras, meerstammige boom en borders met paarse salie bij een witte woning">
+        <div class="tw-stack-10">
+          <h2 class="tw-h3">Investeer in wat <em>écht</em> waarde toevoegt</h2>
+          <p class="tw-body">We bekijken je tuin ter plaatse, bespreken je plannen en maken een offerte op maat. Je antwoorden zijn al ingevuld.</p>
+        </div>
+        <div class="tw-stack-4">
+          <button type="button" class="tw-btn tw-btn-primary" data-action="quote">Vraag mijn offerte aan <svg class="tw-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></button>
+          <button type="button" class="tw-btn tw-btn-text" data-action="pdf"><svg class="tw-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11"/><path d="M7 10l5 5 5-5"/><path d="M5 20h14"/></svg>Download mijn resultaat (PDF)</button>
+          <p class="tw-small tw-center" id="tw-pdf-note" hidden>Prototype: de PDF wordt hier nog niet aangemaakt.</p>
+        </div>
+      </div>
+      <div class="tw-crm" data-crm hidden>
+        <span class="tw-crm-title">Data naar CRM (prototype, niet zichtbaar voor bezoekers)</span>
+        <pre data-bind="crm"></pre>
+      </div>
+    </section>
+
+    <!-- BEDANKT -->
+    <section class="tw-screen" data-screen="thanks">
+      <span class="tw-success-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+      <div class="tw-stack-12">
+        <h1 class="tw-h1">Bedankt, <span data-bind="firstName"></span>. Je aanvraag is <em>binnen</em>.</h1>
+        <p class="tw-body-lg">Een van onze tuinontwerpers neemt binnen 1 werkdag contact met je op.</p>
+      </div>
+      <img class="tw-photo" src="tuin.jpg" alt="Tuin met betonnen terras, meerstammige boom en borders met paarse salie bij een witte woning">
+      <div class="tw-crm" data-crm hidden>
+        <span class="tw-crm-title">Data naar CRM (prototype, niet zichtbaar voor bezoekers)</span>
+        <pre data-bind="crm"></pre>
+      </div>
+    </section>
+
+  </main>
+</div>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
