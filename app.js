@@ -151,6 +151,7 @@
       segment: lead.segment,
       pageUrl: location.href,
       utm: readUtm(),
+      website: ($('#tw-website') || {}).value || '',
       timestamp: state.submittedAt || new Date().toISOString()
     };
   }

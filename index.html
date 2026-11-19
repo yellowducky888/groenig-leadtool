@@ -89,6 +89,11 @@
             <input id="tw-postcode" name="postcode" type="text" class="tw-input" autocomplete="postal-code" inputmode="numeric" maxlength="4" aria-describedby="tw-postcode-err">
             <span class="tw-error" id="tw-postcode-err" hidden></span>
           </div>
+          <!-- Honeypot tegen spambots: onzichtbaar voor bezoekers -->
+          <div class="tw-hp" aria-hidden="true">
+            <label for="tw-website">Website</label>
+            <input id="tw-website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
           <label for="tw-optin" class="tw-check">
             <input id="tw-optin" name="optin" type="checkbox">
             <span>Stuur me een paar keer per jaar tuininspiratie.</span>

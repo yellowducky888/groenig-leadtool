@@ -10,10 +10,10 @@ window.TW_CONFIG = {
   // Zet op false zodra de echte waarden hierboven zijn ingevuld.
   showPlaceholderNotice: true,
 
-  // Waar de leaddata naartoe gaat. Laat leeg om enkel een
-  // 'tuinwaarde:lead' event op window te sturen (en naar dataLayer).
-  // TODO: invullen met de CRM-/webhook-URL.
-  crmEndpoint: '',
+  // Waar de leaddata naartoe gaat: de Vercel-functie api/lead.js, die via
+  // Resend de bevestigingsmail en de leadmelding verstuurt.
+  // Laat leeg om enkel een 'tuinwaarde:lead' event op window te sturen.
+  crmEndpoint: '/api/lead',
 
   // Middelpunt per woningwaarde-schijf (uit de brief)
   homeValueMid: { lt300: 250000, '300to500': 400000, '500to750': 625000, '750to1000': 875000, gt1000: 1200000 },

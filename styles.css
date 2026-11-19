@@ -282,6 +282,7 @@ main:focus { outline: none; }
 .tw-input:focus { outline: none; padding: 0 15px; border: 2px solid var(--primary); box-shadow: var(--shadow-focus); }
 .tw-input[aria-invalid="true"] { padding: 0 15px; border: 2px solid var(--error); }
 .tw-error { font-size: 14px; line-height: 1.5; color: var(--error); }
+.tw-hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
 .tw-check { display: flex; gap: 12px; align-items: flex-start; font-size: 16px; line-height: 1.5; cursor: pointer; }
 .tw-check input { width: 20px; height: 20px; margin: 2px 0 0; flex-shrink: 0; accent-color: var(--primary); }
 
